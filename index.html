@@ -1,0 +1,70 @@
+<!--Ajustar os espaçamentos e implementar um fundo gradiente no body-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="flex items-center justify-center sm:bg-gradient-to-b from-custom-color to-blue-900 overflow-auto">
+    <div class="container w-screen h-screen flex justify-center items-center sm:p-5">
+        <form action="" class="max-w-sm max-h-max flex flex-col justify-between sm:bg-white box-border p-5 rounded-xl">
+            <div class="flex items-center justify-between mb-14">
+                <div class="flex items-center justify-normal">
+                    <div class="w-3 h-3 rounded-sm bg-custom-color flex mr-2"></div>
+                    <p class="font-medium">Bric</p>
+                </div>
+                <p>Already have an account? <a href="" class="text-custom-color font-semibold">Sign in</a></p>
+            </div>
+            <div>
+                <h1 class="text-gray-700 text-3xl font-semibold mb-4">Manage your freelance business with us!</h1>
+                <p class="text-gray-500 mb-10">Takes less than 10 minutes to fill out all the information needed to register your business.</p>
+            </div>
+            <div class="w-full relative input">
+                <p class="absolute top-0 left-0 text-gray-500 w-full pointer-events-none transition-all text-sm font-normal">Email</p>
+                <input type="text" class="w-full outline-none border-b-1 border-gray-300 py-0.5 bg-white mb-10">
+            </div>
+            <div class="w-full relative input">
+                <p class="absolute top-0 left-0 text-gray-500 w-full pointer-events-none transition-all text-sm font-normal">Full name</p>
+                <input type="text" class="w-full outline-none border-b-1 border-gray-300 py-0.5 bg-white mb-10">
+            </div>
+            <div class="w-full relative input">
+                <p class="absolute top-0 left-0 text-gray-500 w-full pointer-events-none transition-all text-sm font-normal">Password</p>
+                <input type="password" class="w-full outline-none border-b-1 border-gray-300 py-0.5 bg-white mb-10">
+            </div>
+            <div>
+                <button class="bg-custom-color text-white font-medium w-full py-3 rounded-lg mb-3">Get Started</button>
+                <p class="font-normal text-gray-500">By signing up you are agreeing to our <br> <a href="" class="text-gray-700 font-medium">Terms and Conditions</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        let inputs = document.querySelectorAll("div.input input");
+        inputs.forEach(element => {
+            element.addEventListener("focus", function(){
+                element.previousElementSibling.style.top = "-15px";
+                element.previousElementSibling.classList.add("text-xs");
+                element.previousElementSibling.classList.remove("text-gray-500");
+                element.previousElementSibling.classList.add("text-custom-color");
+                element.classList.add("border-b-custom-color");
+            });
+            element.addEventListener("blur", function(){
+                element.previousElementSibling.style.top = "0px";
+                element.previousElementSibling.classList.remove("text-xs");
+                element.previousElementSibling.classList.remove("text-custom-color");
+                element.previousElementSibling.classList.add("text-gray-500");
+                element.classList.remove("border-b-custom-color");
+                if(element.value !== ""){
+                    element.previousElementSibling.style.top = "-15px";
+                    element.previousElementSibling.classList.add("text-xs");
+                    element.previousElementSibling.classList.remove("text-gray-500");
+                    element.previousElementSibling.classList.add("text-custom-color");
+                    element.classList.add("border-b-custom-color");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
